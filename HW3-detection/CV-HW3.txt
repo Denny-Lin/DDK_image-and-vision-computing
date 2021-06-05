@@ -1,0 +1,18 @@
+Part1
+Performs the following morphological operations on a binary image
+執行以下形態學運算上的二進制圖像
+
+erosion侵蝕
+dilation擴張
+opening開盤
+closing關閉
+
+e.g. press ‘e’ for erosion, ‘d’ for dilation, and so on
+
+Part2
+Use your program to write a simple detection program
+使用你的程序編寫一個簡單的檢測程序
+
+E.g. detect ‘o’ from a given image
+
+辨識字

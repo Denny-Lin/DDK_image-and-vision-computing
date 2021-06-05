@@ -1,0 +1,42 @@
+Part I
+ Implement the Roberts, Sobel, and LoG operators
+
+	Implement a program for the user to select different operators and images
+	實施一個方案，供用戶選擇不同的操作員和圖像
+
+ Apply the edge operators to various images
+
+	Try the operators on noisy images, mages with gradients, or complex textures
+	嘗試在嘈雜的圖像運營商，法師用漸變或複雜的紋理
+
+ Discuss the results of edge detection
+
+	How do the different edge operators perform on the images?
+	如何在不同的操作邊緣上的圖像進行？
+
+
+Part II
+ Implement two different image filtering methods (e.g.mean, smoothing, median, Gaussian)
+ ？實現兩個不同的圖像濾波方法（egmean，平滑，中位數，高斯）
+
+	Implement the program to let user select different methods
+	執行該方案，讓用戶選擇不同的方法
+
+ Apply both image filtering and edge detection to the various images
+ ？兩個圖像濾波和邊緣檢測應用於各種圖像
+
+	Use same images as in Part I, but apply image filtering first, then edge detection
+	使用相同的圖片，在第一部分，但首先應用圖像過濾，然後邊緣檢測
+
+ Discuss the results of edge detection when image filtering is applied
+ ？討論的邊緣檢測的結果時，圖像濾波被施加
+
+
+
+==================================================
+
+Roberts operators邊緣較細，Sobel operators邊緣較粗，LOG operators邊緣適中但有雜訊。
+
+
+Mean filter後再邊緣偵測，邊緣較細較不明顯但雜訊較少；
+Median filter後再邊緣偵測，邊緣較粗較明顯但雜訊較多。

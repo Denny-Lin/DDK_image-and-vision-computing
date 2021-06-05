@@ -1,0 +1,45 @@
+clc;clear;
+%讀取圖檔
+[FN1] = uigetfile({'*.jpg','JPEG (*.jpg;*.jpeg;*)';...
+                  '*.png','PNG (*.png)';...
+                  '*.bmp','BMP (*.bmp)'},'開啟圖檔');
+original= imread(FN1);
+
+[FN2] = uigetfile({'*.jpg','JPEG (*.jpg;*.jpeg;*)';...
+                  '*.png','PNG (*.png)';...
+                  '*.bmp','BMP (*.bmp)'},'開啟圖檔');
+o = imread(FN2);
+
+subplot(1,2,1); imshow(original); title('original');
+
+size1 = size(original);
+size2 = size(o);
+%取得辨識字元中心點
+if mod(size2(1),2) == 0
+    h =(size2(1)/2);
+    w =(size2(2)/2);
+else
+    h =(size2(1)+1)/2;
+    w =(size2(2)+1)/2;    
+end
+
+t1=sum(sum(o));
+total1 = sum(sum(o(1,1:size2(2))));
+total2 = sum(sum(o(1:size2(1),1)));
+Recognition_results = original;
+%辨識字元
+for i=1:size1(1)-size2(1)+1
+    for j=1:size1(2)-size2(2)+1
+        
+       t2=sum(sum(original(i:i+size2(2)-1,j:j+size2(1)-1)));
+       total3 = sum(sum(original(i,j:j+size2(1)-1)));
+       total4 = sum(sum(original(i:i+size2(2)-1,j)));
+      
+       if total1==total3 && t1==t2 && total2==total4
+           Recognition_results(i+h-1,j+w-1)=0;          
+       end
+    end    
+end
+
+subplot(1,2,2); imshow(Recognition_results); title('Recognition_results');
+saveas(figure(1),'CV_HW3_2_M1035502','jpg');

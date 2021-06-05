@@ -1,0 +1,18 @@
+Part1
+Write a program that converts a colour image into a binary image using a threshold given by the user
+編寫一個程序，使用由用戶給定的閾值的彩色圖像轉換成二進制圖像
+
+Part2
+Write a program to perform shrinking and expanding.
+編寫一個程序來執行收縮和擴張。
+
+Hand in all two programs and a report that describes your programs and discusses your findings 
+一方面在所有的兩種方案和報告，描述你的程序，並討論你的發現
+
+
+1. 讀取RGB圖檔後能依門檻做二值化。
+2. 能進行侵蝕或膨脹之動作。
+3. 做文書報告(電子檔)。
+
+
+

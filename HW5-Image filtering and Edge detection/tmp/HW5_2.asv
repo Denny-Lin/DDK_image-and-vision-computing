@@ -1,0 +1,51 @@
+[FN]=uigetfile({'*.jpg','JPEG (*.jpg;*.jpeg;*)';...
+                  '*.png','PNG (*.png)';...
+                  '*.bmp','BMP (*.bmp)';...
+                  '*.tiff','TIFF (*.tiff)'},'開啟圖檔');
+RGB = imread(FN);
+gray = rgb2gray(RGB);
+figure(1);
+subplot(2,3,1); imshow(RGB); title('Original');
+subplot(2,3,2); imshow(gray); title('Gray');
+
+n = 3; %遮罩大小
+% Mean filter
+
+for i=1:size(I,1)-n+1;
+    for j=1:size(I,2)-n+1;
+        k1 = sum(sum(I(i:i+(n-1),j:j+(n-1)))); %遮罩範圍總和
+        k2(i+(n-1)/2,j+(n-1)/2) = k1 / (n*n); %中心點更新
+    end
+end
+Mean = uint8(k2); ;  
+subplot(3,4,5); imshow(Mean); title('Mean filter');
+% Median filter
+for i=1:size(I,1)-n+1;
+    for j=1:size(I,2)-n+1;
+        k3 = median(median(I(i:i+(n-1),j:j+(n-1)))); %遮罩範圍中值
+        k4(i+1,j+1) = k3; %中心點更新
+    end
+end
+Median = uint8(k4);
+subplot(3,4,9); imshow(Median); title('Median filter');
+
+I1 = double(Mean);  % Mean filter
+I2 = double(Median);  % Median filter
+
+%Roberts   
+Mean_Roberts = edge(I1, 'Roberts');
+Median_Roberts = edge(I2, 'Roberts');
+%Sobel
+Mean_Sobel = edge(I1, 'sobel');
+Median_Sobel = edge(I2, 'sobel');
+%LoG operators
+Mean_LoG = edge(I1, 'log');
+Median_LoG = edge(I2, 'log');
+
+subplot(3,4,6); imshow(Mean_Roberts); title({['Mean']; ['+ Roberts']});
+subplot(3,4,7); imshow(Mean_Sobel); title({['Mean']; ['+ Sobel']});
+subplot(3,4,8); imshow(Mean_LoG); title({['Mean']; ['+ LOG']});
+
+subplot(3,4,10); imshow(Median_Roberts); title({['Median']; ['+ Roberts']});
+subplot(3,4,11); imshowMedian_SobelG5); title({['Median']; ['+ Sobel']});
+subplot(3,4,12); imshow(Median_LoG); title({['Median']; ['+ LOG']});
