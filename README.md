@@ -1,2 +1,2 @@
 # DDK_image-and-vision-computing
-image-and-vision-computing via MATLAB
+This is a bunch of file of image-and-vision-computing via MATLAB.
